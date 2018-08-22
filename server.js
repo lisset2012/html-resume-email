@@ -59,7 +59,7 @@ app.use('/', express.static(path.join(__dirname,'assets')));
 //4
 app.get('/', function(req, res){//first parameter is the path, second callback function
  
- res.sendFile(path.join(__dirname,'form.html'));//_dirname????
+ res.sendFile(path.join(__dirname,'./form.html'));//_dirname????
 });
 
 //7 using the transporter
