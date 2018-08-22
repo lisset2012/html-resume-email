@@ -21,6 +21,28 @@ var transporter = nodemailer.createTransport({
 //parse the body as a json object to interprete the content of the form that we are sending from the browser
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+//14
+//purpose of this is to enable cross domain requests
+// Add headers
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', ['http://ltorres.techlaunch.io:8000','http://142.93.202.199:8000']);
+  
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type');
+  
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+  
+    // Pass to next layer of middleware
+    next();
+  });
+
 //12
 //expose the folder assets at the root location of my server for security (static contact as css, js, images)
 //in order to use fetch
