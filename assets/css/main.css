@@ -1,17 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru');
+
 body{
+    font-family: 'Kosugi Maru', sans-serif;
     padding: 0;
     margin: 0;
+    background-image: url("../img/vintageEnvelope.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    
 }
 
-.main-wrapper{
+.container{
+    height: 735px;
+   
     display: flex;
-    flex-direction: row;
-}
-
-.image{
-    width: 50vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
 }
 
 .main-form{
-    width: 50vw;
+    width: 75%;
+    height: 450px;
+    margin: 53px;
+    background-color: white;
+    opacity: 0.5;
+   
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#form{
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width: 36vw;
+    margin: 20px;
+    
+}
+
+button{
+    width: 36vw;
+    margin: 20px;
 }

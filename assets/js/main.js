@@ -5,6 +5,9 @@ const btn = document.getElementById('sendBtn');
 
 btn.onclick = function(e){
     e.preventDefault();
+
+    btn.setAttribute("disabled",true);
+    document.getElementById('message').innerHTML = 'Sending email...';
 //Wraper of the vanilla JS to send request the server
     fetch('http://localhost:8000/',{
         method: 'POST',
@@ -22,8 +25,11 @@ btn.onclick = function(e){
     .then(result => result.json())
     .then(result => {
         document.getElementById('message').innerHTML = result.message;
+        btn.removeAttribute("disabled");
+        document.getElementById("form").reset();
     })
     .catch(err => {
         document.getElementById('message').innerHTML = err.message;
+        btn.removeAttribute("disabled");
     })
 }
