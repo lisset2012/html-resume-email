@@ -24,10 +24,16 @@ app.use(express.json());
 //14
 //purpose of this is to enable cross domain requests
 // Add headers
+
+
 app.use(function (req, res, next) {
 
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', ['http://ltorres.techlaunch.io:8000','http://142.93.202.199:8000']);
+    var allowedOrgins = ['http://ltorres.techlaunch.io:8000','http://142.93.202.199:8000'];
+    let origin = req.headers.origin;
+    if(allowedOrgins.indexOf(origin) > -1){
+        res.setHeader('Access-Control-Allow-Origin',origin);
+    }
+    
   
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -60,7 +66,7 @@ app.get('/', function(req, res){//first parameter is the path, second callback f
 app.post('/', function(req, res){//first parameter is the path, second callback function
     // console.log(req.body);
     //8
-    var emailBody = fs.readFileSync('./prueba.html');
+    var emailBody = fs.readFileSync('./assets/prueba.html');
     //9???
     var mailOptions = {
         form: req.body.from,
