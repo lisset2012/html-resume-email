@@ -28,13 +28,8 @@ app.use(express.json());
 
 app.use(function (req, res, next) {
 
-    var allowedOrgins = ['http://ltorres.techlaunch.io:8000','http://142.93.202.199:8000'];
-    let origin = req.headers.origin;
-    if(allowedOrgins.indexOf(origin) > -1){
-        res.setHeader('Access-Control-Allow-Origin',origin);
-    }
+    res.setHeader('Access-Control-Allow-Origin', "*");
     
-  
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   
