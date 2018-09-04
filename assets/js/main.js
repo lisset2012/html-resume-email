@@ -9,7 +9,7 @@ btn.onclick = function(e){
     btn.setAttribute("disabled",true);
     document.getElementById('message').innerHTML = 'Sending email...';
 //Wraper of the vanilla JS to send request the server
-    fetch('http://localhost:8000/',{
+    fetch('http://ltorres.techlaunch.io:8000/',{
         method: 'POST',
         headers: {
             'Accept': 'application/json',
